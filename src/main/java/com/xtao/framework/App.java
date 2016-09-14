@@ -1,4 +1,4 @@
-package com.xtao;
+package com.xtao.framework;
 
 /**
  * Hello world!
