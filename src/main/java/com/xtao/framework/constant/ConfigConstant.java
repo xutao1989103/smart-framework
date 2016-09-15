@@ -1,4 +1,4 @@
-package com.xtao.framework;
+package com.xtao.framework.constant;
 
 /**
  * Created by xutao on 16/9/14.

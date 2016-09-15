@@ -1,11 +1,8 @@
 package com.xtao.framework.util;
 
-import com.xtao.framework.ConfigConstant;
-import com.xtao.framework.helper.ConfigHelper;
-
-import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.Properties;
 
 /**
@@ -14,9 +11,8 @@ import java.util.Properties;
 public class PropsUtil {
     public static Properties loadProps(String fileName) {
         Properties properties = new Properties();
-        String path = ConfigHelper.class.getClassLoader().getResource(fileName).getPath();
         try {
-            FileInputStream in = new FileInputStream(path);
+            InputStream in = ClassUtil.getClassLoader().getResourceAsStream(fileName);
             properties.load(in);
         } catch (FileNotFoundException e) {
             e.printStackTrace();

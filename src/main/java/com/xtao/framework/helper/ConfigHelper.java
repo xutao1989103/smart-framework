@@ -1,6 +1,6 @@
 package com.xtao.framework.helper;
 
-import com.xtao.framework.ConfigConstant;
+import com.xtao.framework.constant.ConfigConstant;
 import com.xtao.framework.util.PropsUtil;
 
 import java.util.Properties;

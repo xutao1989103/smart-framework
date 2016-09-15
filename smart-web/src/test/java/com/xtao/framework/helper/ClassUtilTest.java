@@ -1,6 +1,5 @@
 package com.xtao.framework.helper;
 
-import com.xtao.framework.ConfigConstant;
 import com.xtao.framework.util.ClassUtil;
 import junit.framework.TestCase;
 import org.junit.Test;
