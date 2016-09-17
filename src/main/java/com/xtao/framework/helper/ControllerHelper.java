@@ -25,9 +25,9 @@ public class ControllerHelper {
         if (CollectionUtils.isNotEmpty(controllers)) {
             for (Class<?> clazz : controllers) {
                 Method[] methods = clazz.getMethods();
-                if(ArrayUtils.isNotEmpty(methods)) {
-                    for(Method method : methods) {
-                        if(method.isAnnotationPresent(Action.class)) {
+                if (ArrayUtils.isNotEmpty(methods)) {
+                    for (Method method : methods) {
+                        if (method.isAnnotationPresent(Action.class)) {
                             Action action = method.getAnnotation(Action.class);
                             RequestMethod requestMethod = action.method();
                             String requestPath = action.path();

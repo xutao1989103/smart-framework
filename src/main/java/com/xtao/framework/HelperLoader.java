@@ -1,9 +1,6 @@
 package com.xtao.framework;
 
-import com.xtao.framework.helper.ControllerHelper;
-import com.xtao.framework.helper.BeanHelper;
-import com.xtao.framework.helper.ClassHelper;
-import com.xtao.framework.helper.IocHelper;
+import com.xtao.framework.helper.*;
 import com.xtao.framework.util.ClassUtil;
 
 /**
@@ -14,11 +11,12 @@ public final class HelperLoader {
         Class<?>[] classes = {
                 ClassHelper.class,
                 BeanHelper.class,
+                AopHelper.class,
                 IocHelper.class,
                 ControllerHelper.class
         };
-        for(Class<?> clazz : classes){
-            ClassUtil.loadClass(clazz.getName(), false);
+        for (Class<?> clazz : classes) {
+            ClassUtil.loadClass(clazz.getName(), true);
         }
     }
 }

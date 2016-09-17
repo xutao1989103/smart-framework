@@ -6,6 +6,7 @@ import com.xtao.framework.annotation.Controller;
 import com.xtao.framework.annotation.Service;
 import com.xtao.framework.util.ClassUtil;
 
+import java.lang.annotation.Annotation;
 import java.util.Set;
 
 /**
@@ -46,6 +47,26 @@ public class ClassHelper {
         Set<Class<?>> classSet = Sets.newHashSet();
         classSet.addAll(getServiceClassSet());
         classSet.addAll(getControllerClassSet());
+        return classSet;
+    }
+
+    public static Set<Class<?>> getClassSetBySuper(Class<?> supperClass) {
+        Set<Class<?>> classSet = Sets.newHashSet();
+        for (Class clazz : CLASS_SET) {
+            if (supperClass.isAssignableFrom(clazz) && !supperClass.equals(clazz)) {
+                classSet.add(clazz);
+            }
+        }
+        return classSet;
+    }
+
+    public static Set<Class<?>> getClassSetByAnnotation(Class<? extends Annotation> annotationClass) {
+        Set<Class<?>> classSet = Sets.newHashSet();
+        for (Class clazz : CLASS_SET) {
+            if (clazz.isAnnotationPresent(annotationClass)) {
+                classSet.add(clazz);
+            }
+        }
         return classSet;
     }
 

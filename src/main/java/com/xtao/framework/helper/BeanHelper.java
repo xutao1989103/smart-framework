@@ -18,7 +18,7 @@ public class BeanHelper {
 
     static {
         Set<Class<?>> classSet = ClassHelper.getBeanClassSet();
-        for(Class<?> clazz : classSet){
+        for (Class<?> clazz : classSet) {
             Object obj = ReflectionUtil.newInstance(clazz);
             BEAN_MAP.put(clazz, obj);
         }
@@ -29,9 +29,13 @@ public class BeanHelper {
     }
 
     public static <T> T getBean(Class<T> clazz) {
-        if(!BEAN_MAP.containsKey(clazz)){
+        if (!BEAN_MAP.containsKey(clazz)) {
             throw new RuntimeException("can not get bean by class: " + clazz);
         }
-        return (T)BEAN_MAP.get(clazz);
+        return (T) BEAN_MAP.get(clazz);
+    }
+
+    public static void setBean(Class<?> clazz, Object obj) {
+        BEAN_MAP.put(clazz, obj);
     }
 }

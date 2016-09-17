@@ -14,16 +14,16 @@ public class IocHelper {
 
     static {
         Map<Class<?>, Object> beanMap = BeanHelper.getBeanMap();
-        for(Map.Entry<Class<?>, Object> entry: beanMap.entrySet()){
+        for (Map.Entry<Class<?>, Object> entry : beanMap.entrySet()) {
             Class<?> clazz = entry.getKey();
             Object obj = entry.getValue();
             Field[] fields = clazz.getDeclaredFields();
-            if(ArrayUtils.isNotEmpty(fields)){
-                for(Field field : fields){
-                    if(field.isAnnotationPresent(Inject.class)){
+            if (ArrayUtils.isNotEmpty(fields)) {
+                for (Field field : fields) {
+                    if (field.isAnnotationPresent(Inject.class)) {
                         Class<?> beanFieldClass = field.getType();
                         Object beanFieldInstance = beanMap.get(beanFieldClass);
-                        if(beanFieldInstance != null){
+                        if (beanFieldInstance != null) {
                             ReflectionUtil.setField(obj, field, beanFieldInstance);
                         }
                     }

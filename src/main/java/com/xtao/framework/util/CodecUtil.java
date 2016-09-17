@@ -19,7 +19,7 @@ public final class CodecUtil {
         String target;
         try {
             target = URLEncoder.encode(source, UTF8);
-        } catch (Exception e){
+        } catch (Exception e) {
             LOGGER.error("encode url error", e);
             throw new RuntimeException(e);
         }

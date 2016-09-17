@@ -48,15 +48,15 @@ public class ClassUtil {
                         String packagePath = url.getPath().replaceAll("%20", " ");
                         addClass(classSet, packagePath, packageName);
                     } else if ("jar".equals(protocol)) {
-                        JarURLConnection jarURLConnection = (JarURLConnection)url.openConnection();
-                        if(jarURLConnection != null) {
+                        JarURLConnection jarURLConnection = (JarURLConnection) url.openConnection();
+                        if (jarURLConnection != null) {
                             JarFile jarFile = jarURLConnection.getJarFile();
-                            if(jarFile != null){
+                            if (jarFile != null) {
                                 Enumeration<JarEntry> jarEntries = jarFile.entries();
-                                while (jarEntries.hasMoreElements()){
+                                while (jarEntries.hasMoreElements()) {
                                     JarEntry jarEntry = jarEntries.nextElement();
                                     String jarEntryName = jarEntry.getName();
-                                    if(jarEntryName.endsWith(".class")) {
+                                    if (jarEntryName.endsWith(".class")) {
                                         String className = jarEntryName.substring(0, jarEntryName.lastIndexOf(".")).replaceAll("/", ".");
                                         doAddClass(classSet, className);
                                     }
@@ -79,21 +79,21 @@ public class ClassUtil {
                 return (file.isFile() && file.getName().endsWith(".class")) || file.isDirectory();
             }
         });
-        for(File file: files) {
+        for (File file : files) {
             String fileName = file.getName();
-            if(file.isFile()) {
+            if (file.isFile()) {
                 String className = fileName.substring(0, fileName.lastIndexOf("."));
-                if(StringUtils.isNotEmpty(packageName)) {
+                if (StringUtils.isNotEmpty(packageName)) {
                     className = packageName + "." + className;
                 }
                 doAddClass(classSet, className);
-            }else {
+            } else {
                 String subPackagePath = fileName;
-                if(StringUtils.isNotEmpty(packagePath)) {
+                if (StringUtils.isNotEmpty(packagePath)) {
                     subPackagePath = packagePath + "/" + subPackagePath;
                 }
                 String subPackageName = fileName;
-                if(StringUtils.isNotEmpty(packageName)) {
+                if (StringUtils.isNotEmpty(packageName)) {
                     subPackageName = packageName + "." + subPackageName;
                 }
                 addClass(classSet, subPackagePath, subPackageName);
