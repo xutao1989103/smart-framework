@@ -1,10 +1,11 @@
-package com.xtao.framework.bean;
+package com.xtao.framework.helper;
 
 
 import com.google.common.collect.Maps;
 import com.xtao.framework.annotation.Action;
+import com.xtao.framework.bean.Handler;
+import com.xtao.framework.bean.Request;
 import com.xtao.framework.enums.RequestMethod;
-import com.xtao.framework.helper.ClassHelper;
 import org.apache.commons.collections4.CollectionUtils;
 import org.apache.commons.lang3.ArrayUtils;
 

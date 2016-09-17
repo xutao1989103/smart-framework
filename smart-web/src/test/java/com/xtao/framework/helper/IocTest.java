@@ -12,6 +12,6 @@ public class IocTest extends TestCase{
     public void testController() {
         IocHelper iocHelper = new IocHelper();
         TestController testController = BeanHelper.getBean(TestController.class);
-        assertTrue(testController.test());
+        assertNotNull(testController.test("xtao", 26L));
     }
 }

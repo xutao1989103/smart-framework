@@ -1,6 +1,7 @@
 package com.xtao.framework.bean;
 
 import com.xtao.framework.enums.RequestMethod;
+import com.xtao.framework.helper.ControllerHelper;
 import junit.framework.TestCase;
 import org.junit.Test;
 
