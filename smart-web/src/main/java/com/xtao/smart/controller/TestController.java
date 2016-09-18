@@ -18,7 +18,6 @@ public class TestController {
 
     @Action(method = RequestMethod.GET, path = "/test")
     public Data test(String name, Long age) {
-        System.out.println(name + ": " + age);
         Boolean test = testService.test();
         Data data = new Data(test);
         return data;
