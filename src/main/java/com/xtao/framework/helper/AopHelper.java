@@ -5,7 +5,6 @@ import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
 import com.google.common.collect.Sets;
 import com.xtao.framework.annotation.Aspect;
-import com.xtao.framework.annotation.Transaction;
 import com.xtao.framework.aop.AspectProxy;
 import com.xtao.framework.aop.Proxy;
 import com.xtao.framework.aop.ProxyManager;
